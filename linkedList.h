@@ -1,0 +1,10 @@
+#ifndef CS260_SPRING_23_ASSIGNMENT_4_LINKEDLIST_H
+#define CS260_SPRING_23_ASSIGNMENT_4_LINKEDLIST_H
+
+
+class linkedList {
+
+};
+
+
+#endif
