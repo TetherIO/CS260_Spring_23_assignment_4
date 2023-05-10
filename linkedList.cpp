@@ -21,16 +21,19 @@ public:
     void add(int someValue, int somePosition){
         node *new_node = new node;
         new_node->data = someValue;
-        new_node->next = nullptr;
+        //new_node->next = nullptr;
 
         node *current = head;
         // somePosition = n+1 (n is index)
-        while (current != nullptr){
+        for (int i = 0; current != nullptr && i < (somePosition -1); i++){
             current = current->next;
         }
 
+        if (current == nullptr){
+            cout << "Invalid position" << endl;
+        }
 
-
+        new_node->next
 
     }
 };
