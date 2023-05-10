@@ -3,11 +3,6 @@
 
 using namespace std;
 
-struct Node {
-
-};
-
-
 
 // function that inserts given value to given position
 

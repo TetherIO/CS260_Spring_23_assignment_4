@@ -2,7 +2,8 @@
 #define CS260_SPRING_23_ASSIGNMENT_4_LINKEDLIST_H
 
 struct Node {
-
+    int data;
+    node* next;
 };
 
 
