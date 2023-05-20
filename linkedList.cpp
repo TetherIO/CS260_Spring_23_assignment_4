@@ -5,13 +5,13 @@ using namespace std;
 
 struct Node {
     int data;
-    node *next;
+    Node *next;
 };
 
 
 class linkedList {
 private:
-    node *head;
+    Node *head;
 
 public:
     linkedList() {
