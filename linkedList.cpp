@@ -40,9 +40,11 @@ public:
         }
 
         // inserting the new node at the desired position
-        new_node->next = current->next;
-        current->next = new_node;
-    }
+        if (current == nullptr){
+            cout << "Invalid position" << endl;
+            delete new_node;
+            return;
+        }
 
 
     int remove(int somePosition) {
