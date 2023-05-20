@@ -37,14 +37,13 @@ public:
 
         if (current == nullptr) {
             cout << "Invalid position" << endl;
-        }
-
-        // inserting the new node at the desired position
-        if (current == nullptr) {
-            cout << "Invalid position" << endl;
             delete new_node;
             return;
         }
+
+        // inserting the new node at the desired position
+        new_node->next = current->next;
+        current->next = new_node;
     }
 
     int remove(int somePosition) {
@@ -56,8 +55,12 @@ public:
 
         Node* current = head;
 
-        if (current == nullptr) {
-            cout << "Invalid position" << endl;
+        if(somePosition == 0){
+            Node* nodeToDelete = head;
+            head = head->next;
+            int removedValue = nodeToDelete->data;
+            delete nodeToDelete;
+            return removedValue;
         }
 
 
