@@ -33,7 +33,19 @@ public:
             cout << "Invalid position" << endl;
         }
 
-        new_node->next
+        new_node->next = current->next;
+        current->next = new_node;
+    }
+    // ideally moving this to a search function used by both add/remove/return value functions
+    int remove(int somePosition) {
+        for (int i = 0; current != nullptr && i < (somePosition -1); i++){
+            current = current->next
+        }
+
+        if (current == nullptr){
+            cout << "Invalid position" << endl;
+        }
+
 
     }
 };
