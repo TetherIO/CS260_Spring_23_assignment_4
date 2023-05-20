@@ -5,44 +5,56 @@ using namespace std;
 
 struct Node {
     int data;
-    node* next;
+    node *next;
 };
 
 
 class linkedList {
 private:
-    node* head;
+    node *head;
 
 public:
     linkedList() {
-        head = nullptr; // allows me to handle initial edge case
+        head = nullptr; // sets head to nullptr, which represents an empty list
     }
 
-    void add(int someValue, int somePosition){
-        node *new_node = new node;
+    void add(int someValue, int somePosition) { // assumes user is counting/indexing from 0 for somePosition
+        Node *new_node = new Node;
         new_node->data = someValue;
         //new_node->next = nullptr;
 
-        node *current = head;
-        // somePosition = n+1 (n is index)
-        for (int i = 0; current != nullptr && i < (somePosition -1); i++){
+        if(somePosition == 0){ // handles insertion at head of list
+            new_node->next = head;
+            head = new_node;
+            return;
+        }
+
+        Node *current = head;
+        // iterating over list to find position
+        for (int i = 0; current != nullptr && i < (somePosition - 1); i++) {
             current = current->next;
         }
 
-        if (current == nullptr){
+        if (current == nullptr) {
             cout << "Invalid position" << endl;
         }
 
+        // inserting the new node at the desired position
         new_node->next = current->next;
         current->next = new_node;
     }
-    // ideally moving this to a search function used by both add/remove/return value functions
+
+
     int remove(int somePosition) {
-        for (int i = 0; current != nullptr && i < (somePosition -1); i++){
-            current = current->next
+        // Check for an empty list.
+        if (head == nullptr) {
+            cout << "List is empty" << endl;
+            return -1;
         }
 
-        if (current == nullptr){
+        Node* current = head;
+
+        if (current == nullptr) {
             cout << "Invalid position" << endl;
         }
 
@@ -51,7 +63,7 @@ public:
 };
 
 
-int main(){
+int main() {
 
     return 0;
 }
