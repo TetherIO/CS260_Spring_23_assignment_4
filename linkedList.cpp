@@ -47,37 +47,47 @@ public:
     }
 
     int remove(int somePosition) {
-        // Check for an empty list.
         if (head == nullptr) {
             cout << "List is empty" << endl;
             return -1;
         }
 
-        if(somePosition == 0){
-            Node* nodeToDelete = head;
+        if (somePosition == 0) {
+            Node *nodeToDelete = head;
             head = head->next;
             int removedValue = nodeToDelete->data;
             delete nodeToDelete;
             return removedValue;
         }
 
-        // the repeated code below could probably be a standalone search function
-        Node* current = head;
-        for(int i = 0; current != nullptr && i < somePosition - 1; i++){
+        Node *current = head;
+        for (int i = 0; current != nullptr && i < somePosition - 1; i++) {
             current = current->next;
         }
 
-        if(current == nullptr || current->next == nullptr){ //added a current->next condition
+        if (current == nullptr || current->next == nullptr) {
             cout << "Invalid position" << endl;
             return -1;
         }
 
+        // unlinking node from list
+        Node *nodeToDelete = current->next;
+        int removedValue = nodeToDelete->data;
+        current->next = nodeToDelete->next;
+        delete nodeToDelete;
 
+        return removedValue;
     }
 };
 
 
 int main() {
+    linkedList myList;
+
+    myList.add(5, 0);
+    myList.add(10, 1);
+    myList.add(15, 0);
+    myList.add(20, 2);
 
     return 0;
 }
