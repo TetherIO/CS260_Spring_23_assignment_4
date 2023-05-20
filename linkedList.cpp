@@ -53,14 +53,23 @@ public:
             return -1;
         }
 
-        Node* current = head;
-
         if(somePosition == 0){
             Node* nodeToDelete = head;
             head = head->next;
             int removedValue = nodeToDelete->data;
             delete nodeToDelete;
             return removedValue;
+        }
+
+        // the repeated code below could probably be a standalone search function
+        Node* current = head;
+        for(int i = 0; current != nullptr && i < somePosition - 1; i++){
+            current = current->next;
+        }
+
+        if(current == nullptr || current->next == nullptr){ //added a current->next condition
+            cout << "Invalid position" << endl;
+            return -1;
         }
 
 
