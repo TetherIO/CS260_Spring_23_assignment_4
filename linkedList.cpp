@@ -23,7 +23,7 @@ public:
         new_node->data = someValue;
         //new_node->next = nullptr;
 
-        if(somePosition == 0){ // handles insertion at head of list
+        if (somePosition == 0) { // handles insertion at head of list
             new_node->next = head;
             head = new_node;
             return;
@@ -40,12 +40,12 @@ public:
         }
 
         // inserting the new node at the desired position
-        if (current == nullptr){
+        if (current == nullptr) {
             cout << "Invalid position" << endl;
             delete new_node;
             return;
         }
-
+    }
 
     int remove(int somePosition) {
         // Check for an empty list.
