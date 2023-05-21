@@ -1,4 +1,3 @@
-//#include "linkedList.h"
 #include <iostream>
 
 using namespace std;
@@ -65,18 +64,34 @@ public:
             current = current->next;
         }
 
+        // since current is the node before the one to be removed, if current->next == nullptr, there's an issue
         if (current == nullptr || current->next == nullptr) {
             cout << "Invalid position" << endl;
             return -1;
         }
 
-        // unlinking node from list
+        // unlinking node from list and linking adjacent nodes
         Node *nodeToDelete = current->next;
         int removedValue = nodeToDelete->data;
-        current->next = nodeToDelete->next;
+        current->next = nodeToDelete->next;  // links the nodes positioned before and after the deleted one
         delete nodeToDelete;
 
         return removedValue;
+    }
+
+    // possibly could have made search function instead of repeated code in all 3 functions
+    int get(int somePosition) {
+        Node *current = head;
+        for (int i = 0; current != nullptr && i < somePosition; i++){
+            current = current->next;
+        }
+
+        if (current == nullptr){
+            cout << "Invalid position" << endl;
+            return -1;
+        }
+
+        return current->data;
     }
 };
 
@@ -84,21 +99,23 @@ public:
 int main() {
     linkedList myList;
 
+    //add method
     myList.add(5, 0);
     myList.add(10, 1);
     myList.add(15, 0);
     myList.add(20, 2);
+    // 15>5>20>10
+
+    //get method tests after adding elements
+    cout << myList.get(0) << endl; // prints 15
+    cout << myList.get(1) << endl; //  5
+    cout << myList.get(2) << endl; //  20
+    cout << myList.get(3) << endl; //   10
+
+    //remove method tests removal and return of values
+    cout << myList.remove(0) << endl; // 15
+    cout << myList.remove(1) << endl; // 20
 
     return 0;
+
 }
-
-// function that inserts given value to given position
-
-
-// function that removes value from given position and returns it
-
-
-// function that takes a position and returns that value without removing it
-
-// tests
-
