@@ -4,19 +4,16 @@ Assignment 4 (Arbitrary list operations)
     Create a linked-list that allows:
 
         an add function that takes a value and inserts it into a given position into the list
-        (example: myList.add(someValue, somePosition) )
+   ![](https://github.com/TetherIO/CS260_Spring_23_assignment_4/blob/main/addfunction.png)
 
         a remove function that takes a position and removes the value stored at that position of the list and returns it
-        (example: myList.remove(somePosition) )
+   ![](https://github.com/TetherIO/CS260_Spring_23_assignment_4/blob/main/removefunction.png)
 
         a get function that takes a position and returns that value without removing it
-        (example: myList.get(somePosition) )
+   ![](https://github.com/TetherIO/CS260_Spring_23_assignment_4/blob/main/getfunction.png)
 
-    Be sure to include at least one test function for each piece of functionality that should verify that your code is working!  This should be at least one test per behavior, likely more.  You can make these tests in a source file with a main where your tests are either directly in the main or inside their own standalone functions (please do not neglect the importance of testing!)
+    Oe test function for each piece of functionality that should verify that your code is working!
+![](https://github.com/TetherIO/CS260_Spring_23_assignment_4/blob/main/simpletests.png)
 
-    Once you have implemented and tested your code, add to the README file what line(s) of code or inputs and outputs show your work meeting each of the above requirements (or better, include a small screen snip of where it meets the requirement!).
 
-    (Note: we will cover the analysis of some of this in class next week, then we will have you analyze the next ones!)
-    Attempt to analyze the complexity of your implementation with line-by-line analysis,
-
-Note: This assignment is to get you to think about the trade-offs that we may have to weigh before using one structure over another
+The time complexity of the functions are likely all O(n) because they all require a traversal of elements for up to n elements. It seems to be this way because the other operations are constant time operations like returning data, removal of nodes, and creating a new node -- which suggests to me that overall they're O(n)
